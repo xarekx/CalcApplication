@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/welcome_tv"
+        android:textSize="32sp"
+        android:padding="8dp"
+        android:textColor="@color/white"
+        android:text="@string/welcome_in_calcapp"
+        android:textAlignment="center"
+        android:layout_marginTop="120dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/some_info_tv"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:layout_below="@+id/welcome_tv"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/go_next"
+        android:layout_below="@id/some_info_tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/lets_calc_something"
+        android:textColor="@color/white"
+        android:background="@drawable/button_shape"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/made_by"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_below="@id/go_next"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+</RelativeLayout>

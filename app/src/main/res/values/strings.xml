@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CalcApp</string>
+    <string name="welcome_in_calcapp">Welcome in CalcApp</string>
+    <string name="lets_calc_something">Lets Calc something</string>
+</resources>

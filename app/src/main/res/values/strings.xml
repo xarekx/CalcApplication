@@ -4,4 +4,6 @@
     <string name="lets_calc_something">Lets Calc something</string>
     <string name="functions">Functions</string>
     <string name="geometry">Geometry</string>
+    <string name="geometry_pic">geometry_pic</string>
+    <string name="function_pic">function_pic</string>
 </resources>

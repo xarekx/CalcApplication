@@ -25,7 +25,7 @@
         android:id="@+id/some_info_tv"
         android:textSize="22sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/welcome_tv"
+        android:layout_below="@id/welcome_tv"
         android:textAlignment="center"
         android:padding="8dp"
         android:layout_centerHorizontal="true"

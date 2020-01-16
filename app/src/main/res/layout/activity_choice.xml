@@ -43,7 +43,7 @@
                 android:layout_margin="8dp"
                 android:elevation="2dp"
                 app:cardCornerRadius="4dp"
-                app:cardBackgroundColor="#484A62"
+                app:cardBackgroundColor="@color/card_background_dark"
                 android:focusable="true">
 
                 <LinearLayout
@@ -83,7 +83,7 @@
                 android:clickable="true"
                 app:cardElevation="2dp"
                 app:cardCornerRadius="4dp"
-                app:cardBackgroundColor="#484A62"
+                app:cardBackgroundColor="@color/card_background_dark"
                 android:focusable="true">
 
                 <LinearLayout

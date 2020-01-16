@@ -5,6 +5,7 @@ import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,6 +33,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),GeometricActivity.class);
                 startActivity(intent);
+                Log.d(TAG, "onClick() called with: v = [" + v + "]");
             }
         });
 
@@ -40,6 +42,7 @@ public class ChoiceActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),FunctionActivity.class);
                 startActivity(intent);
+                Log.d(TAG, "onClick() called with: v = [" + v + "]");
             }
         });
 

@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),ChoiceActivity.class);
                 startActivity(intent);
-                Log.v(TAG,"On click: Go to next activity");
+                Log.d(TAG, "onClick() called with: v = [" + v + "]");
             }
         });
 

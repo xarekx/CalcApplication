@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".FunctionActivity"/>
+        <activity android:name=".LinearFunction.LinearActivity"/>
+        <activity android:name=".QuadraticFunction.QuadraticActivity" />
+        <activity android:name=".FunctionActivity" />
         <activity android:name=".GeometricActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

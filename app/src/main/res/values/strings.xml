@@ -6,4 +6,8 @@
     <string name="geometry">Geometry</string>
     <string name="geometry_pic">geometry_pic</string>
     <string name="function_pic">function_pic</string>
+    <string name="quadratic">y=ax^2+bx+c</string>
+    <string name="linear">y=ax+b</string>
+    <string name="linear_tv">Linear</string>
+    <string name="quadratic_tv">Quadratic</string>
 </resources>

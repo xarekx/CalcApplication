@@ -10,4 +10,14 @@
     <string name="linear">y=ax+b</string>
     <string name="linear_tv">Linear</string>
     <string name="quadratic_tv">Quadratic</string>
+    <string name="lack_zero_place">Lack zero place</string>
+    <string name="function_constant">Function is constant 0</string>
+    <string name="zero_place">X0 =</string>
+    <string name="function_increasing">Function is increasing</string>
+    <string name="function_decreasing">Function is decreasing</string>
+    <string name="function_const">Function is constant</string>
+    <string name="type_your_parameters">Type your parameters</string>
+    <string name="type_parameter_a">Type parameter A</string>
+    <string name="type_parameter_b">Type parameter B</string>
+    <string name="calc">Calc</string>
 </resources>

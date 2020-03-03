@@ -42,7 +42,6 @@ public class FunctionActivity extends AppCompatActivity {
                 Log.d(TAG, "onClick() called with: v = [" + v + "]");
             }
         });
-
     }
 
 }

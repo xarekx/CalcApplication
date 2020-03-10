@@ -20,4 +20,5 @@
     <string name="type_parameter_a">Type parameter A</string>
     <string name="type_parameter_b">Type parameter B</string>
     <string name="calc">Calc</string>
+    <string name="type_parameter_c">Type parameter C</string>
 </resources>

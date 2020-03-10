@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LinearFunction.LinearActivity"
+    tools:ignore="Autofill"
     android:background="@drawable/gradient">
 
    <TextView
@@ -54,23 +55,23 @@
 
 
     <TextView
-        android:id="@+id/param_result"
+        android:id="@+id/param_linear_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
         android:textSize="24sp"
         android:layout_below="@id/button_linear_calc"
-        android:layout_marginEnd="40dp"
-        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"/>
     
     <TextView
-        android:id="@+id/function_info"
+        android:id="@+id/function_linear_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/param_result"
+        android:layout_below="@+id/param_linear_result"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/white"
         android:textSize="20sp"/>
 

@@ -30,9 +30,9 @@ public class LinearActivity extends AppCompatActivity {
 
         paramA = findViewById(R.id.param_linear_a);
         paramB = findViewById(R.id.param_linear_b);
-        paramResult = findViewById(R.id.param_result);
+        paramResult = findViewById(R.id.param_linear_result);
         calcButton = findViewById(R.id.button_linear_calc);
-        functionInfo = findViewById(R.id.function_info);
+        functionInfo = findViewById(R.id.function_linear_info);
 
 
         calcButton.setOnClickListener(new View.OnClickListener() {

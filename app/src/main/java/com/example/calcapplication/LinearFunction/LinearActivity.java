@@ -16,11 +16,11 @@ public class LinearActivity extends AppCompatActivity {
 
     private final String TAG = "LinearActivity";
 
-    private EditText paramA;
-    private EditText paramB;
-    private TextView paramResult;
-    private TextView functionInfo;
-    private Button calcButton;
+    private EditText lParamA;
+    private EditText lParamB;
+    private TextView lParamResult;
+    private TextView lFunctionInfo;
+    private Button lCalcButton;
     CalcLinearFunction calcLinearFunction;
 
     @Override
@@ -28,39 +28,39 @@ public class LinearActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_linear);
 
-        paramA = findViewById(R.id.param_linear_a);
-        paramB = findViewById(R.id.param_linear_b);
-        paramResult = findViewById(R.id.param_linear_result);
-        calcButton = findViewById(R.id.button_linear_calc);
-        functionInfo = findViewById(R.id.function_linear_info);
+        lParamA = findViewById(R.id.param_linear_a);
+        lParamB = findViewById(R.id.param_linear_b);
+        lParamResult = findViewById(R.id.param_linear_result);
+        lFunctionInfo = findViewById(R.id.function_linear_info);
+        lCalcButton = findViewById(R.id.button_linear_calc);
 
 
-        calcButton.setOnClickListener(new View.OnClickListener() {
+        lCalcButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String mParamA = paramA.getText().toString();
-                String mParamB = paramB.getText().toString();
+                String mParamA = lParamA.getText().toString();
+                String mParamB = lParamB.getText().toString();
 
 
-                if(paramA.getText().toString().equals("") || paramB.getText().toString().equals("") ) {
+                if(lParamA.getText().toString().equals("") || lParamB.getText().toString().equals("") ) {
                     Toast.makeText(LinearActivity.this, "param A or B is empty", Toast.LENGTH_SHORT).show();
                 } else {
-                    calcLinearFunction = new CalcLinearFunction(Float.parseFloat(mParamA),Float.parseFloat(mParamB));
-                    float result = calcLinearFunction.getZeroPlace();
-                    if(Float.isInfinite(result)) {
-                        paramResult.setText(R.string.lack_zero_place);
-                    } else if(Float.isNaN(result)) {
-                        paramResult.setText(R.string.function_constant);
+                    calcLinearFunction = new CalcLinearFunction(Double.parseDouble(mParamA),Double.parseDouble(mParamB));
+                    double result = calcLinearFunction.getZeroPlace();
+                    if(Double.isInfinite(result)) {
+                        lParamResult.setText(R.string.lack_zero_place);
+                    } else if(Double.isNaN(result)) {
+                        lParamResult.setText(R.string.function_constant);
                     } else {
-                        paramResult.setText(String.format("%s%s", getString(R.string.zero_place), result));
+                        lParamResult.setText(String.format("%s%s", getString(R.string.zero_place), result));
                     }
 
-                    if(Float.parseFloat(mParamA)>0) {
-                        functionInfo.setText(R.string.function_increasing);
-                    } else if (Float.parseFloat(mParamA)<0) {
-                        functionInfo.setText(R.string.function_decreasing);
+                    if(Double.parseDouble(mParamA)>0) {
+                        lFunctionInfo.setText(R.string.function_increasing);
+                    } else if (Double.parseDouble(mParamA)<0) {
+                        lFunctionInfo.setText(R.string.function_decreasing);
                     } else  {
-                        functionInfo.setText(R.string.function_const);
+                        lFunctionInfo.setText(R.string.function_const);
                     }
 
                 }

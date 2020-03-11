@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/param_quadratic_a"
         android:layout_width="match_parent"
-        android:inputType="numberSigned|numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         android:layout_height="wrap_content"
         android:layout_below="@+id/type_quadratic_param"
         android:hint="@string/type_parameter_a"
@@ -41,7 +41,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:hint="@string/type_parameter_b"
-        android:inputType="numberSigned|numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         />
     <EditText
         android:id="@+id/param_quadratic_c"
@@ -54,7 +54,7 @@
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:hint="@string/type_parameter_c"
-        android:inputType="numberSigned|numberDecimal"
+        android:inputType="numberDecimal|numberSigned"
         />
     <Button
         android:id="@+id/button_quadratic_calc"
@@ -65,7 +65,7 @@
         android:text="@string/calc"/>
 
     <TextView
-        android:id="@+id/param_quadratic_result"
+        android:id="@+id/param_quadratic_delta_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button_quadratic_calc"
@@ -75,11 +75,33 @@
         android:layout_alignParentStart="true"
         android:textSize="20sp"
         />
+
+    <TextView
+        android:id="@+id/param_quadratic_result_x1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/param_quadratic_delta_result"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_alignParentStart="true"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/param_quadratic_result_x2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/param_quadratic_result_x1"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        />
     <TextView
         android:id="@+id/function_quadratic_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/param_quadratic_result"
+        android:layout_below="@id/param_quadratic_result_x2"
         android:layout_marginTop="30dp"
         android:layout_marginStart="8dp"
         android:textColor="@color/white"

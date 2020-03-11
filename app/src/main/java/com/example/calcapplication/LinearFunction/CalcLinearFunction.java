@@ -2,17 +2,17 @@ package com.example.calcapplication.LinearFunction;
 
 public class CalcLinearFunction {
 
-    private float paramA;
-    private float paramB;
+    private double paramA;
+    private double paramB;
 
-    public CalcLinearFunction(float paramA, float paramB) {
+    public CalcLinearFunction(double paramA, double paramB) {
         this.paramA = paramA;
         this.paramB = paramB;
     }
 
-    public float getZeroPlace() {
+    public double getZeroPlace() {
 
-        float resultParam ;
+        double resultParam ;
         resultParam = (-paramB/paramA);
 
         return resultParam;

@@ -1,5 +1,7 @@
 package com.example.calcapplication.QuadraticFunction;
 
+import java.util.ArrayList;
+
 public class CalcQuadraticFunction {
 
     private double paramA;
@@ -49,23 +51,63 @@ public class CalcQuadraticFunction {
 
     public double calcX1() {
 
-        return (-getParamB() - calcDelta()) / 2 * getParamA();
+        return (-getParamB() - Math.sqrt(calcDelta())) / 2 * getParamA();
     }
 
     public double calcX2() {
 
-        return (-getParamB() + calcDelta()) / 2 * getParamA();
+        return (-getParamB() + Math.sqrt(calcDelta())) / 2 * getParamA();
     }
 
     public double calcTopP() {
-
-        return -getParamB() / 2 * getParamA();
+        return ((-getParamB()) / (2 * getParamA()));
     }
 
     public double calcTopQ() {
 
-        return -calcDelta() / 4 * getParamA();
+        return ((-calcDelta()) / (4 * getParamA()));
     }
 
+    //Monotonicity - monotoniczność
+    public ArrayList getMonotonicity() {
+        ArrayList<String> functionInfo = new ArrayList<>();
 
+        if(getParamA() > 0 && calcDelta()>0) {
+
+            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is increasing on (",calcTopQ(),";+inf)"));
+
+        } else if(getParamA() > 0 && calcDelta()==0) {
+
+            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcX0()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is increasing on (",calcX0(),";+inf)"));
+
+        }  else if(getParamA() > 0 && calcDelta() < 0) {
+
+            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is increasing on (",calcTopQ(),";+inf)"));
+
+        } else if(getParamA() < 0 && calcDelta()>0) {
+
+            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is decreasing on (",calcTopQ(),";+inf)"));
+
+        } else if(getParamA() < 0 && calcDelta()==0) {
+
+            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcX0()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is decreasing on (",calcX0(),";+inf)"));
+
+        }  else if(getParamA() < 0 && calcDelta() < 0) {
+
+            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+")"));
+            functionInfo.add(String.format("%s%s%s", "Function is decreasing on (",calcTopQ(),";+inf)"));
+
+        } else {
+
+            functionInfo.add(String.format("%s","Function has no monotonicity"));
+        }
+
+        return functionInfo;
+    }
 }
+

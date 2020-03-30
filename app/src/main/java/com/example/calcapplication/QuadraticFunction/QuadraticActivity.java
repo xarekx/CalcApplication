@@ -19,7 +19,8 @@ public class QuadraticActivity extends AppCompatActivity {
     private TextView qParamResultX1;
     private TextView qParamResultX2;
     private TextView qParamDeltaResult;
-    private TextView qFunctionInfo;
+    private TextView qFunctionMonoInfo1;
+    private TextView qFunctionMonoInfo2;
     private Button qCalcButton;
     CalcQuadraticFunction calcQuadraticFunction;
 
@@ -34,7 +35,8 @@ public class QuadraticActivity extends AppCompatActivity {
         qParamResultX1 = findViewById(R.id.param_quadratic_result_x1);
         qParamResultX2 = findViewById(R.id.param_quadratic_result_x2);
         qParamDeltaResult = findViewById(R.id.param_quadratic_delta_result);
-        qFunctionInfo = findViewById(R.id.function_quadratic_info);
+        qFunctionMonoInfo1 = findViewById(R.id.function_quadratic_mono1);
+        qFunctionMonoInfo2 = findViewById(R.id.function_quadratic_mono2);
         qCalcButton = findViewById(R.id.button_quadratic_calc);
 
 
@@ -56,39 +58,50 @@ public class QuadraticActivity extends AppCompatActivity {
                     calcQuadraticFunction = new CalcQuadraticFunction(Double.parseDouble(mParamA),Double.parseDouble(mParamB),Double.parseDouble(mParamC));
                     System.out.println(calcQuadraticFunction);
                     double deltaResult = calcQuadraticFunction.calcDelta();
+                    if(calcQuadraticFunction.getParamA() != 0 ) {
+                        if(deltaResult > 0) {
 
-                    if(deltaResult > 0) {
+                            //visibility of x1,x2 ( needed to return x2 when first delta was 0 )
+                            if (qParamResultX2.getVisibility()==View.GONE) {
+                                qParamResultX2.setVisibility(View.VISIBLE);
+                            }
+                            double x1 = calcQuadraticFunction.calcX1();
+                            double x2 = calcQuadraticFunction.calcX2();
+                            // Calc delta, x1,x2
+                            qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
+                            qParamResultX1.setText(String.format("%s%s","X1 = ", x1));
+                            qParamResultX2.setText(String.format("%s%s","X2 = ", x2));
 
-                        //visibility of x1,x2 ( needed to return x2 when first delta was 0 )
-                        if (qParamResultX2.getVisibility()==View.GONE) {
-                            qParamResultX2.setVisibility(View.VISIBLE);
+                            qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
+                            qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
+
+
+                        } else if ( deltaResult == 0 ) {
+                            qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
+                            qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
+                            double x0 = calcQuadraticFunction.calcX0();
+                            if(qParamResultX2.getVisibility()==View.VISIBLE) {
+                                qParamResultX2.setVisibility(View.GONE);
+                            }
+                            qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
+                            qParamResultX1.setText(String.format("%s%s",getString(R.string.zero_place),x0));
+
+                        } else {
+                            if (qParamResultX2.getVisibility()==View.GONE) {
+                                qParamResultX2.setVisibility(View.VISIBLE);
+                            }
+                            qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
+                            qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
+                            qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
+                            qParamResultX1.setText(R.string.lack_zero_x1);
+                            qParamResultX2.setText(R.string.lack_zero_x2);
                         }
-                        double x1 = calcQuadraticFunction.calcX1();
-                        double x2 = calcQuadraticFunction.calcX2();
-                        // Calc delta, x1,x2
-                        qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
-                        qParamResultX1.setText(String.format("%s%s","X1 = ", x1));
-                        qParamResultX2.setText(String.format("%s%s","X2 = ", x2));
 
-
-                    } else if ( deltaResult == 0 ) {
-                        double x0 = calcQuadraticFunction.calcX0();
-                        if(qParamResultX2.getVisibility()==View.VISIBLE) {
-                            qParamResultX2.setVisibility(View.GONE);
-                        }
-                        qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
-                        qParamResultX1.setText(String.format("%s%s",getString(R.string.zero_place),x0));
 
                     } else {
-                        if (qParamResultX2.getVisibility()==View.GONE) {
-                            qParamResultX2.setVisibility(View.VISIBLE);
-                        }
-                        qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
-                        qParamResultX1.setText(R.string.lack_zero_x1);
-                        qParamResultX2.setText(R.string.lack_zero_x2);
+                        qFunctionMonoInfo1.setText(R.string.not_quadratic_function);
+
                     }
-
-
                 }
 
             }

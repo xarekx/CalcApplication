@@ -23,4 +23,5 @@
     <string name="type_parameter_c">Type parameter C</string>
     <string name="lack_zero_x1">Lack zero places x1</string>
     <string name="lack_zero_x2">Lack zero places x2</string>
+    <string name="not_quadratic_function">IT IS NO QUADRATIC FUNCTION</string>
 </resources>

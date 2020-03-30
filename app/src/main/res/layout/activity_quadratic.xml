@@ -98,10 +98,20 @@
         android:textSize="20sp"
         />
     <TextView
-        android:id="@+id/function_quadratic_info"
+        android:id="@+id/function_quadratic_mono1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/param_quadratic_result_x2"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/function_quadratic_mono2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/function_quadratic_mono1"
         android:layout_marginTop="30dp"
         android:layout_marginStart="8dp"
         android:textColor="@color/white"

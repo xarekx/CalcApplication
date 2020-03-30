@@ -74,8 +74,8 @@ public class CalcQuadraticFunction {
 
         if(getParamA() > 0 && calcDelta()>0) {
 
-            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+")"));
-            functionInfo.add(String.format("%s%s%s", "Function is increasing on (",calcTopQ(),";+inf)"));
+            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+"]"));
+            functionInfo.add(String.format("%s%s%s", "Function is increasing on [",calcTopP(),";+inf)"));
 
         } else if(getParamA() > 0 && calcDelta()==0) {
 
@@ -84,13 +84,13 @@ public class CalcQuadraticFunction {
 
         }  else if(getParamA() > 0 && calcDelta() < 0) {
 
-            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+")"));
-            functionInfo.add(String.format("%s%s%s", "Function is increasing on (",calcTopQ(),";+inf)"));
+            functionInfo.add(String.format("%s%s", "Function is decreasing on (-inf;",calcTopP()+"]"));
+            functionInfo.add(String.format("%s%s%s", "Function is increasing on [",calcTopP(),";+inf)"));
 
         } else if(getParamA() < 0 && calcDelta()>0) {
 
-            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+")"));
-            functionInfo.add(String.format("%s%s%s", "Function is decreasing on (",calcTopQ(),";+inf)"));
+            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+"]"));
+            functionInfo.add(String.format("%s%s%s", "Function is decreasing on [",calcTopP(),";+inf)"));
 
         } else if(getParamA() < 0 && calcDelta()==0) {
 
@@ -99,8 +99,8 @@ public class CalcQuadraticFunction {
 
         }  else if(getParamA() < 0 && calcDelta() < 0) {
 
-            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+")"));
-            functionInfo.add(String.format("%s%s%s", "Function is decreasing on (",calcTopQ(),";+inf)"));
+            functionInfo.add(String.format("%s%s", "Function is increasing on (-inf;",calcTopP()+"]"));
+            functionInfo.add(String.format("%s%s%s", "Function is decreasing on [",calcTopP(),";+inf)"));
 
         } else {
 

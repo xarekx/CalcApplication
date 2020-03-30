@@ -13,6 +13,8 @@ import com.example.calcapplication.R;
 
 public class QuadraticActivity extends AppCompatActivity {
 
+    private final String TAG = "QuadraticActivity";
+
     private EditText qParamA;
     private EditText qParamB;
     private EditText qParamC;
@@ -55,50 +57,87 @@ public class QuadraticActivity extends AppCompatActivity {
                     Toast.makeText(QuadraticActivity.this, "Parameter A,B or C is empty", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    //initiate constructor of Quadratic function
                     calcQuadraticFunction = new CalcQuadraticFunction(Double.parseDouble(mParamA),Double.parseDouble(mParamB),Double.parseDouble(mParamC));
-                    System.out.println(calcQuadraticFunction);
+
+                    //delta
                     double deltaResult = calcQuadraticFunction.calcDelta();
+
                     if(calcQuadraticFunction.getParamA() != 0 ) {
                         if(deltaResult > 0) {
 
-                            //visibility of x1,x2 ( needed to return x2 when first delta was 0 )
-                            if (qParamResultX2.getVisibility()==View.GONE) {
-                                qParamResultX2.setVisibility(View.VISIBLE);
-                            }
+                            //x1 and x2 value
                             double x1 = calcQuadraticFunction.calcX1();
                             double x2 = calcQuadraticFunction.calcX2();
+
+                            //visibility if before paramA was 0
+                            setViewVisibility(qParamResultX1);
+                            setViewVisibility(qParamResultX2);
+                            setViewVisibility(qParamDeltaResult);
+                            setViewVisibility(qFunctionMonoInfo1);
+                            setViewVisibility(qFunctionMonoInfo2);
+
                             // Calc delta, x1,x2
                             qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
                             qParamResultX1.setText(String.format("%s%s","X1 = ", x1));
                             qParamResultX2.setText(String.format("%s%s","X2 = ", x2));
 
+                            // Set Monotonicity
                             qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
                             qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
 
 
                         } else if ( deltaResult == 0 ) {
-                            qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
-                            qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
+
+                            // x0 value
                             double x0 = calcQuadraticFunction.calcX0();
-                            if(qParamResultX2.getVisibility()==View.VISIBLE) {
-                                qParamResultX2.setVisibility(View.GONE);
-                            }
+
+                            //visibility if before paramA was 0
+                            setViewGone(qParamResultX2);
+                            setViewVisibility(qFunctionMonoInfo1);
+                            setViewVisibility(qFunctionMonoInfo2);
+                            setViewVisibility(qParamDeltaResult);
+                            setViewVisibility(qParamResultX1);
+
+                            // Calc delta and x0,
+                            // x0 put in same field what x1
                             qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
                             qParamResultX1.setText(String.format("%s%s",getString(R.string.zero_place),x0));
 
-                        } else {
-                            if (qParamResultX2.getVisibility()==View.GONE) {
-                                qParamResultX2.setVisibility(View.VISIBLE);
-                            }
+                            // Set Monotonicity
                             qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
                             qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
+
+
+                        } else {
+
+                            //visibility if before paramA was 0
+                            setViewVisibility(qFunctionMonoInfo1);
+                            setViewVisibility(qFunctionMonoInfo2);
+                            setViewVisibility(qParamDeltaResult);
+                            setViewVisibility(qParamResultX1);
+                            setViewVisibility(qParamResultX2);
+
+                            // Calc delta and set x1,x2
                             qParamDeltaResult.setText(String.format("%s%s","delta = ",deltaResult));
                             qParamResultX1.setText(R.string.lack_zero_x1);
                             qParamResultX2.setText(R.string.lack_zero_x2);
+
+                            // Set Monotonicity
+                            qFunctionMonoInfo1.setText(calcQuadraticFunction.getMonotonicity().get(0).toString());
+                            qFunctionMonoInfo2.setText(calcQuadraticFunction.getMonotonicity().get(1).toString());
                         }
 
 
                     } else {
+
+                        // visibility gone cause paramA ==0 -> is not quadratic !
+                        setViewGone(qParamDeltaResult);
+                        setViewGone(qParamResultX1);
+                        setViewGone(qParamResultX2);
+                        setViewGone(qFunctionMonoInfo2);
+
+                        //set info about not quadratic
                         qFunctionMonoInfo1.setText(R.string.not_quadratic_function);
 
                     }
@@ -108,4 +147,23 @@ public class QuadraticActivity extends AppCompatActivity {
         });
 
     }
+
+    public void setViewVisibility(TextView tv) {
+
+        if(tv.getVisibility()==View.GONE) {
+            tv.setVisibility(View.VISIBLE);
+        }
+
+    }
+
+    public void setViewGone(TextView tv) {
+
+        if(tv.getVisibility()==View.VISIBLE) {
+            tv.setVisibility(View.GONE);
+        }
+
+    }
+
+
+
 }

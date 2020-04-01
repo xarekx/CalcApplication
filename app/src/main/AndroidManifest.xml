@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".LinearFunction.LinearActivity"/>
+        <activity android:name=".Volume.ChooseVolumeActivity"></activity>
+        <activity android:name=".Area.ChooseAreaActivity" />
+        <activity android:name=".LinearFunction.LinearActivity" />
         <activity android:name=".QuadraticFunction.QuadraticActivity" />
         <activity android:name=".FunctionActivity" />
         <activity android:name=".GeometricActivity" />
